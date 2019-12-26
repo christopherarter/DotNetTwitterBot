@@ -1,0 +1,27 @@
+service: dotnettwitterbot
+
+provider:
+  name: aws
+  runtime: dotnetcore2.1
+environment:
+  TWITTER_API_KEY: ${env:TWITTER_API_KEY}
+  TWITTER_API_SECRET: ${env:TWITTER_API_SECRET}
+  TWITTER_ACCESS_TOKEN: ${env:TWITTER_ACCESS_TOKEN}
+  TWITTER_ACCESS_TOKEN_SECRET: ${env:TWITTER_ACCESS_TOKEN_SECRET}
+  AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+  AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+
+package:
+  individually: true
+
+functions:
+  hello:
+    handler: CsharpHandlers::MemeBot.Handler::Hello
+    package:
+      artifact: bin/release/netcoreapp2.1/hello.zip
+    events:
+      - http:
+         path: tweets/send
+         method: get
+      - schedule: rate(4 hours)
+      - sns: trigger-tweet
