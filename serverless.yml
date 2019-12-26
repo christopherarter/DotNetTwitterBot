@@ -20,8 +20,5 @@ functions:
     package:
       artifact: bin/release/netcoreapp2.1/hello.zip
     events:
-      - http:
-         path: tweets/send
-         method: get
       - schedule: rate(4 hours)
       - sns: trigger-tweet
