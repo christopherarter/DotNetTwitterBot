@@ -12,12 +12,16 @@ namespace MemeBot
        {
             MemeRepository repository = new MemeRepository("wholesomememes");
             Meme randomMeme = repository.GetRandomMeme();
-
             var twitterClient = new TwitterClient(randomMeme);
             await twitterClient.Tweet();
+        }
 
-            Console.WriteLine("Tweet sent.");
-
+    public async Task Likes(ILambdaContext context)
+       {
+            MemeRepository repository = new MemeRepository("wholesomememes");
+            Meme randomMeme = repository.GetRandomMeme();
+            var twitterClient = new TwitterClient(randomMeme);
+            await twitterClient.LikeOtherTweets();
         }
     }
 

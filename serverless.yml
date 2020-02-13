@@ -22,3 +22,10 @@ functions:
     events:
       - schedule: rate(4 hours)
       - sns: trigger-tweet
+  likes:
+    handler: CsharpHandlers::MemeBot.Handler::Likes
+    package:
+      artifact: bin/release/netcoreapp2.1/likes.zip
+    events:
+      - schedule: rate(60 minutes)
+      - sns: trigger-tweet-likes
