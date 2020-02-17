@@ -16,16 +16,16 @@ package:
 
 functions:
   hello:
-    handler: CsharpHandlers::MemeBot.Handler::Hello
+    handler: DailyWholesome/CsharpHandlers::DailyWholesome.Handler::Hello
     package:
-      artifact: bin/release/netcoreapp2.1/hello.zip
+      artifact: DailyWholesome/bin/release/netcoreapp2.1/hello.zip
     events:
       - schedule: rate(4 hours)
       - sns: trigger-tweet
   likes:
-    handler: CsharpHandlers::MemeBot.Handler::Likes
+    handler: DailyWholesome/CsharpHandlers::DailyWholesome.Handler::Likes
     package:
-      artifact: bin/release/netcoreapp2.1/likes.zip
+      artifact: DailyWholesome/bin/release/netcoreapp2.1/likes.zip
     events:
       - schedule: rate(60 minutes)
       - sns: trigger-tweet-likes

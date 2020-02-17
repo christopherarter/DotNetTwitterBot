@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\DailyWholesome\aws-csharp.csproj" />
+  </ItemGroup>
+
+<ItemGroup>
+  <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+</ItemGroup>
+
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

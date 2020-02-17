@@ -1,15 +1,14 @@
 ﻿using System;
-namespace MemeBot
+namespace DailyWholesome
 {
-    public class Meme
+    public class Post
     {
         public string Title { get; set; }
-
         public string ImageUrl { get; set; }
-
+        public string Link { get; set; }
         public string Permalink { get; set; }
 
-        public Meme(string Title, string ImageUrl, string Permalink)
+        public Post(string Title, string Permalink, string ImageUrl = "")
         {
             this.ImageUrl = ImageUrl;
             this.Title = Title;
@@ -17,3 +16,5 @@ namespace MemeBot
         }
     }
 }
+
+

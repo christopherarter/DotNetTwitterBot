@@ -7,7 +7,7 @@ using System.Threading;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace MemeBot
+namespace DailyWholesome
 {
     public class TwitterClient
     {
@@ -18,15 +18,15 @@ namespace MemeBot
         private readonly string PostTweetUrl = "https://api.twitter.com/1.1/statuses/update.json";
         private readonly string UploadMediaUrl = "https://upload.twitter.com/1.1/media/upload.json?media_category=tweet_image";
         static readonly HttpClient client = new HttpClient();
-        private Meme Meme;
+        private Post Post;
 
         private TwitterContext twitterCtx;
 
         public string TwitterHandle;
 
-        public TwitterClient(Meme Meme, string HashTags = null)
+        public TwitterClient(Post Post, string HashTags = null)
         {
-            this.Meme = Meme;
+            this.Post = Post;
             this.TwitterHandle = "daily_wholesome";
             var auth = new SingleUserAuthorizer
             {
@@ -43,8 +43,8 @@ namespace MemeBot
 
         public async Task<bool> Tweet()
         {
-            string status = Meme.Title + "\n #wholesomememes #memes #memesdaily #dankmemes";
-            var imageResponse = await client.GetByteArrayAsync(Meme.ImageUrl);
+            string status = Post.Title + "\n #wholesoPostmes #Posts #Postsdaily #dankPosts";
+            var imageResponse = await client.GetByteArrayAsync(Post.ImageUrl);
             Media media = await twitterCtx.UploadMediaAsync(imageResponse, "image/jpeg", "tweet_image");
             Status tweet = await twitterCtx.TweetAsync(status, new ulong[] { media.MediaID });
             return true;
@@ -70,29 +70,28 @@ namespace MemeBot
                     }
                     catch (Exception e) 
                     {
-                        //Console.WriteLine(e);
+                        Console.WriteLine(e);
                     }
                 }
             }
         }
 
-        private async Task<Search> GetRelatedTweets(List<string> HashTags = null, int Count = 10)
+        private async Task<Search> GetRelatedTweets(int Count = 10)
         {
-            if (HashTags == null)
-            {
-                HashTags = new List<string>
+
+                var HashTags = new List<string>
                 {
-                    "wholesome memes",
-                    "#wholesomememes",
-                    "#wholesomememe",
-                    "#memes",
-                    "#meme",
+                    "wholesome Posts",
+                    "#wholesoPostmes",
+                    "#wholesoPostme",
+                    "#Posts",
+                    "#Post",
                     "#aww",
                     "#awww",
                     "#adorable",
                     "#babyyoda",
                 };
-            }
+            
             var searchTerms = String.Join(" OR ", HashTags);
 
             return await

@@ -1,7 +1,9 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aws-csharp", "aws-csharp.csproj", "{058B837E-1271-4FBE-8C3E-0DFDF75F1528}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aws-csharp", ".\TwitterBot\aws-csharp.csproj", "{058B837E-1271-4FBE-8C3E-0DFDF75F1528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterBotConsole", "TwitterBotConsole\TwitterBotConsole.csproj", "{13CA84EF-1982-4698-B37F-EDC2444FE76E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +15,9 @@ Global
 		{058B837E-1271-4FBE-8C3E-0DFDF75F1528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058B837E-1271-4FBE-8C3E-0DFDF75F1528}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058B837E-1271-4FBE-8C3E-0DFDF75F1528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13CA84EF-1982-4698-B37F-EDC2444FE76E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13CA84EF-1982-4698-B37F-EDC2444FE76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13CA84EF-1982-4698-B37F-EDC2444FE76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13CA84EF-1982-4698-B37F-EDC2444FE76E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
